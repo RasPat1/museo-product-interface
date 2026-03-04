@@ -208,6 +208,7 @@ export async function scrape(): Promise<ScraperResult[]> {
         };
 
         const museumId = museumIdForLocation(detail.locationName);
+        exhibit.category = museumId === 'met-cloisters' ? 'Medieval Art' : 'Art';
         if (museumId === 'met-cloisters') {
           cloistersExhibits.push(exhibit);
         } else {
@@ -223,7 +224,7 @@ export async function scrape(): Promise<ScraperResult[]> {
           startDate: listing.startDate,
           endDate: listing.endDate,
           imageUrl: listing.imageUrl,
-          category: null,
+          category: 'Art',
           url: listing.url,
         });
       }
