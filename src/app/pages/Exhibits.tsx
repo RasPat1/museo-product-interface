@@ -65,7 +65,7 @@ export function Exhibits() {
               <div>
                 <h1 className="mb-1">Browse Exhibits</h1>
                 <p className="text-sm text-black/60">
-                  {displayedExhibits.length} exhibit{displayedExhibits.length !== 1 ? 's' : ''} from {curationState.selectedMuseums.length} museum{curationState.selectedMuseums.length !== 1 ? 's' : ''}
+                  {exhibits.length} exhibit{exhibits.length !== 1 ? 's' : ''} from {museums.length} museum{museums.length !== 1 ? 's' : ''}
                 </p>
               </div>
             </div>

@@ -7,7 +7,7 @@
     "startDate": "2025-11-07",
     "endDate": "2026-04-26",
     "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/09/Munter-1983.11_Cropped16x9.jpg",
-    "category": "Modern Art",
+    "category": "Expressionism",
     "url": "https://www.guggenheim.org/exhibition/gabriele-munter"
   },
   {
@@ -18,7 +18,7 @@
     "startDate": "2025-10-10",
     "endDate": "2026-05-03",
     "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/07/Rauschenberg_Web_Image.jpg",
-    "category": "Modern Art",
+    "category": "Contemporary Art",
     "url": "https://www.guggenheim.org/exhibition/collection-in-focus-robert-rauschenberg-life-cant-be-stopped"
   },
   {
@@ -40,7 +40,7 @@
     "startDate": "2026-05-08",
     "endDate": "2026-06-07",
     "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/10/A-Year-with-Children-2025-exh_ph-2-LARGE-JPG-scaled.jpg",
-    "category": "Modern Art",
+    "category": "Contemporary Art",
     "url": "https://www.guggenheim.org/exhibition/a-year-with-children-2026"
   },
   {
@@ -51,7 +51,7 @@
     "startDate": "2026-03-05",
     "endDate": "2026-08-02",
     "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/10/25_Bove_Cropped_Op_01-scaled.jpg",
-    "category": "Modern Art",
+    "category": "Sculpture",
     "url": "https://www.guggenheim.org/exhibition/carol-bove"
   },
   {
@@ -62,7 +62,7 @@
     "startDate": "2026-06-05",
     "endDate": "2027-01-10",
     "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/10/67.1859.3_ph01-LARGE-TIF_cropped-scaled.jpg",
-    "category": "Modern Art",
+    "category": "Contemporary Art",
     "url": "https://www.guggenheim.org/exhibition/guggenheim-pop"
   },
   {
@@ -73,7 +73,7 @@
     "startDate": "2026-06-11",
     "endDate": "2026-07-19",
     "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2026/02/GORDON-2019-In-My-Shadow-Installation-view-36-1-1-scaled.jpg",
-    "category": "Modern Art",
+    "category": "Film & Installation",
     "url": "https://www.guggenheim.org/exhibition/collection-in-focus-zidane-a-21st-century-portrait"
   },
   {
@@ -84,7 +84,7 @@
     "startDate": "2026-09-18",
     "endDate": "2027-03-14",
     "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/10/Taryn-Simon-Guggenheim-composite-9.9.25-scaled.jpg",
-    "category": "Modern Art",
+    "category": "Interactive & Multimedia",
     "url": "https://www.guggenheim.org/exhibition/taryn-simon"
   },
   {
