@@ -9,6 +9,7 @@ import { scrape as scrapeBroad } from './broad';
 import { scrape as scrapeNhm } from './nhm';
 import { scrape as scrapeCaliforniaScience } from './california-science';
 import { scrape as scrapeMet } from './met';
+import { scrape as scrapeMoma } from './moma';
 
 import type { Exhibit } from '../../src/app/types/index';
 
@@ -19,6 +20,7 @@ export const SCRAPERS: Record<string, ScraperFn> = {
   broad: scrapeBroad,
   nhm: scrapeNhm,
   'california-science': scrapeCaliforniaScience,
+  moma: scrapeMoma,
 };
 
 // Scrapers that return multiple results (one per venue)
