@@ -44,7 +44,7 @@ export function ExhibitCard({ exhibit }: ExhibitCardProps) {
           {exhibit.category}
         </div>
         
-        <h3 className="mb-3">{exhibit.title}</h3>
+        <h3 className="mb-3 line-clamp-2 min-h-[2lh]">{exhibit.title}</h3>
         
         <p className="text-sm text-black/60 mb-4 line-clamp-3">
           {exhibit.description}
@@ -75,7 +75,7 @@ export function ExhibitCard({ exhibit }: ExhibitCardProps) {
 
         <button
           onClick={() => toggleExhibit(exhibit.id)}
-          className={`mt-4 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-colors ${
+          className={`mt-8 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-colors ${
             interested
               ? 'bg-black/5 text-black/70 hover:bg-black/10'
               : 'bg-black text-white hover:bg-black/90'
