@@ -20,8 +20,13 @@ export function generateICS(exhibits: Exhibit[]): string {
     const museum = museums.find(m => m.id === exhibit.museumId);
     if (!museum) return;
 
-    const startDate = exhibit.startDate.replace(/-/g, '');
-    const endDate = exhibit.endDate.replace(/-/g, '');
+    // Skip exhibits with no dates at all
+    if (!exhibit.startDate && !exhibit.endDate) return;
+
+    // Use today for missing start dates (exhibit is already open)
+    const today = now.toISOString().slice(0, 10).replace(/-/g, '');
+    const startDate = exhibit.startDate ? exhibit.startDate.replace(/-/g, '') : today;
+    const endDate = exhibit.endDate ? exhibit.endDate.replace(/-/g, '') : exhibit.startDate.replace(/-/g, '');
     
     // Create a unique UID for each event
     const uid = `${exhibit.id}@museo.app`;

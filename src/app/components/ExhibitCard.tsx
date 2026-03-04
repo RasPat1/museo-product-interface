@@ -15,8 +15,8 @@ export function ExhibitCard({ exhibit }: ExhibitCardProps) {
   const interested = isExhibitInterested(exhibit.id);
   const museum = museums.find(m => m.id === exhibit.museumId);
 
-  const startDate = format(new Date(exhibit.startDate), 'MMM d, yyyy');
-  const endDate = format(new Date(exhibit.endDate), 'MMM d, yyyy');
+  const startDate = exhibit.startDate ? format(new Date(exhibit.startDate), 'MMM d, yyyy') : format(new Date(), 'MMM d, yyyy');
+  const endDate = exhibit.endDate ? format(new Date(exhibit.endDate), 'MMM d, yyyy') : null;
   const leavingSoon = isLeavingSoon(exhibit.endDate);
 
   return (
@@ -67,7 +67,7 @@ export function ExhibitCard({ exhibit }: ExhibitCardProps) {
           </div>
           <div className="flex items-center gap-2 text-black/60">
             <Calendar className="w-4 h-4" />
-            <span>{startDate} – {endDate}</span>
+            <span>{endDate ? `${startDate} – ${endDate}` : `From ${startDate}`}</span>
           </div>
         </div>
 

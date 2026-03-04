@@ -67,6 +67,41 @@ describe('generateICS', () => {
     expect(ics).toContain('LOCATION:The Getty Center, Brentwood, Los Angeles');
   });
 
+  it('skips exhibits with no start or end date', () => {
+    const noDateExhibit: Exhibit = {
+      id: 'moma-no-dates',
+      museumId: 'moma',
+      title: 'No Dates Exhibit',
+      description: 'Missing both dates',
+      startDate: '',
+      endDate: '',
+      imageUrl: '',
+      category: 'Art',
+      url: '',
+    };
+    const ics = generateICS([noDateExhibit]);
+    expect(ics).not.toContain('BEGIN:VEVENT');
+  });
+
+  it('uses today as start date when startDate is empty', () => {
+    const noStartExhibit: Exhibit = {
+      id: 'moma-no-start',
+      museumId: 'moma',
+      title: 'Through Only',
+      description: 'Has end date but no start',
+      startDate: '',
+      endDate: '2026-07-05',
+      imageUrl: '',
+      category: 'Art',
+      url: '',
+    };
+    const ics = generateICS([noStartExhibit]);
+    const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    expect(ics).toContain(`DTSTART;VALUE=DATE:${today}`);
+    expect(ics).toContain('DTEND;VALUE=DATE:20260705');
+    expect(ics).toContain('SUMMARY:Through Only');
+  });
+
   it('handles multiple exhibits with mixed url presence', () => {
     const ics = generateICS([exhibitWithUrl, exhibitWithoutUrl]);
 

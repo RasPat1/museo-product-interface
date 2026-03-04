@@ -47,6 +47,9 @@ describe('isLeavingSoon', () => {
     const today = new Date('2026-03-01');
     expect(isLeavingSoon('2026-03-02', today)).toBe(true); // 1 day
   });
+  it('returns false when endDate is empty', () => {
+    expect(isLeavingSoon('')).toBe(false);
+  });
 });
 
 describe('sortByClosingSoonest', () => {
@@ -89,6 +92,17 @@ describe('sortByClosingSoonest', () => {
 
   it('returns empty array for empty input', () => {
     expect(sortByClosingSoonest([])).toEqual([]);
+  });
+
+  it('sorts exhibits with empty endDate to the end', () => {
+    const exhibits = [
+      makeExhibit({ id: 'no-end', endDate: '' }),
+      makeExhibit({ id: 'soon', endDate: '2026-03-15' }),
+      makeExhibit({ id: 'later', endDate: '2026-12-01' }),
+    ];
+
+    const sorted = sortByClosingSoonest(exhibits);
+    expect(sorted.map(e => e.id)).toEqual(['soon', 'later', 'no-end']);
   });
 });
 
