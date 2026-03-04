@@ -157,8 +157,8 @@ export function CalendarPage() {
           <div className="space-y-3">
             {interestedExhibits.map((exhibit, index) => {
               const museum = museums.find(m => m.id === exhibit.museumId);
-              const startDate = format(new Date(exhibit.startDate), 'MMM d, yyyy');
-              const endDate = format(new Date(exhibit.endDate), 'MMM d, yyyy');
+              const startDate = exhibit.startDate ? format(new Date(exhibit.startDate), 'MMM d, yyyy') : null;
+              const endDate = exhibit.endDate ? format(new Date(exhibit.endDate), 'MMM d, yyyy') : null;
 
               return (
                 <motion.div
@@ -181,7 +181,7 @@ export function CalendarPage() {
                       <p className="text-xs text-black/60 mb-2">{museum?.name}</p>
                       <div className="flex items-center gap-3">
                         <p className="text-xs text-black/40">
-                          {startDate} – {endDate}
+                          {startDate && endDate ? `${startDate} – ${endDate}` : startDate ? `From ${startDate}` : endDate ? `Through ${endDate}` : 'Ongoing'}
                         </p>
                         {exhibit.url && (
                           <a
