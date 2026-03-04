@@ -1,11 +1,13 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { CurationState } from '../types';
+import { clearInterestedExhibits } from '../utils/exhibitHelpers';
 
 interface CurationContextType {
   curationState: CurationState;
   selectMuseums: (museumIds: string[]) => void;
   toggleMuseum: (museumId: string) => void;
   toggleExhibit: (exhibitId: string) => void;
+  clearInterested: () => void;
   isMuseumSelected: (museumId: string) => boolean;
   isExhibitInterested: (exhibitId: string) => boolean;
 }
@@ -47,6 +49,10 @@ export function CurationProvider({ children }: { children: React.ReactNode }) {
     }));
   };
 
+  const clearInterested = () => {
+    setCurationState(prev => clearInterestedExhibits(prev));
+  };
+
   const isMuseumSelected = (museumId: string) => {
     return curationState.selectedMuseums.includes(museumId);
   };
@@ -62,6 +68,7 @@ export function CurationProvider({ children }: { children: React.ReactNode }) {
         selectMuseums,
         toggleMuseum,
         toggleExhibit,
+        clearInterested,
         isMuseumSelected,
         isExhibitInterested,
       }}

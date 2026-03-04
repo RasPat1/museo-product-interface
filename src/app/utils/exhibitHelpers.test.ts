@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { isLeavingSoon, sortByClosingSoonest, getMuseumIdsFromExhibits } from './exhibitHelpers';
-import type { Exhibit } from '../types';
+import { isLeavingSoon, sortByClosingSoonest, getMuseumIdsFromExhibits, clearInterestedExhibits } from './exhibitHelpers';
+import type { Exhibit, CurationState } from '../types';
 
 function makeExhibit(overrides: Partial<Exhibit> = {}): Exhibit {
   return {
@@ -139,5 +139,48 @@ describe('getMuseumIdsFromExhibits', () => {
     ];
 
     expect(getMuseumIdsFromExhibits(exhibits)).toEqual(['lacma']);
+  });
+});
+
+describe('clearInterestedExhibits', () => {
+  it('clears all interested exhibits', () => {
+    const state: CurationState = {
+      selectedMuseums: ['lacma', 'getty'],
+      interestedExhibits: ['exhibit-1', 'exhibit-2', 'exhibit-3'],
+    };
+
+    const result = clearInterestedExhibits(state);
+    expect(result.interestedExhibits).toEqual([]);
+  });
+
+  it('preserves selected museums', () => {
+    const state: CurationState = {
+      selectedMuseums: ['lacma', 'getty'],
+      interestedExhibits: ['exhibit-1'],
+    };
+
+    const result = clearInterestedExhibits(state);
+    expect(result.selectedMuseums).toEqual(['lacma', 'getty']);
+  });
+
+  it('does not mutate the original state', () => {
+    const state: CurationState = {
+      selectedMuseums: ['lacma'],
+      interestedExhibits: ['exhibit-1'],
+    };
+
+    const result = clearInterestedExhibits(state);
+    expect(state.interestedExhibits).toEqual(['exhibit-1']);
+    expect(result).not.toBe(state);
+  });
+
+  it('handles already empty interested list', () => {
+    const state: CurationState = {
+      selectedMuseums: ['moca'],
+      interestedExhibits: [],
+    };
+
+    const result = clearInterestedExhibits(state);
+    expect(result.interestedExhibits).toEqual([]);
   });
 });

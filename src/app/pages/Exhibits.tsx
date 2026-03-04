@@ -3,14 +3,14 @@ import { useCuration } from '../context/CurationContext';
 import { exhibits } from '../data/exhibits';
 import { museums } from '../data/museums';
 import { ExhibitCard } from '../components/ExhibitCard';
-import { ArrowLeft, Calendar, Filter, Landmark, Search } from 'lucide-react';
+import { ArrowLeft, Calendar, Filter, Landmark, Search, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { sortByClosingSoonest, getMuseumIdsFromExhibits } from '../utils/exhibitHelpers';
 
 export function Exhibits() {
   const navigate = useNavigate();
-  const { curationState, isMuseumSelected } = useCuration();
+  const { curationState, isMuseumSelected, clearInterested } = useCuration();
   const [museumFilter, setMuseumFilter] = useState<string>('all');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
 
@@ -69,17 +69,33 @@ export function Exhibits() {
                 </p>
               </div>
             </div>
-            {interestedCount > 0 && (
+            <div className="flex items-center gap-2">
+              {interestedCount > 0 && (
+                <motion.button
+                  onClick={clearInterested}
+                  className="flex items-center gap-2 bg-black/5 text-black/70 px-5 py-3 rounded-full hover:bg-black/10 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <X className="w-4 h-4" />
+                  Clear
+                </motion.button>
+              )}
               <motion.button
                 onClick={() => navigate('/calendar')}
-                className="flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-black/90 transition-colors"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full transition-colors ${
+                  interestedCount > 0
+                    ? 'bg-black text-white hover:bg-black/90'
+                    : 'bg-black/5 text-black/40 cursor-default'
+                }`}
+                disabled={interestedCount === 0}
+                whileHover={interestedCount > 0 ? { scale: 1.05 } : {}}
+                whileTap={interestedCount > 0 ? { scale: 0.95 } : {}}
               >
                 <Calendar className="w-4 h-4" />
                 Generate Calendar ({interestedCount})
               </motion.button>
-            )}
+            </div>
           </div>
         </div>
       </header>

@@ -1,5 +1,5 @@
 import { differenceInDays } from 'date-fns';
-import type { Exhibit } from '../types';
+import type { Exhibit, CurationState } from '../types';
 
 const LEAVING_SOON_DAYS = 45;
 
@@ -20,4 +20,8 @@ export function sortByClosingSoonest(exhibits: Exhibit[]): Exhibit[] {
 
 export function getMuseumIdsFromExhibits(exhibits: Exhibit[]): string[] {
   return Array.from(new Set(exhibits.map(e => e.museumId)));
+}
+
+export function clearInterestedExhibits(state: CurationState): CurationState {
+  return { ...state, interestedExhibits: [] };
 }
