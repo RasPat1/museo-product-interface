@@ -3,6 +3,7 @@ export interface Museum {
   name: string;
   location: string;
   category: string;
+  city: string;
   imageUrl: string;
   description: string;
 }

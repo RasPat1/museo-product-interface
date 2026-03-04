@@ -3,6 +3,7 @@ import { CurationState } from '../types';
 
 interface CurationContextType {
   curationState: CurationState;
+  selectMuseums: (museumIds: string[]) => void;
   toggleMuseum: (museumId: string) => void;
   toggleExhibit: (exhibitId: string) => void;
   isMuseumSelected: (museumId: string) => boolean;
@@ -20,6 +21,13 @@ export function CurationProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     localStorage.setItem('museo-curation', JSON.stringify(curationState));
   }, [curationState]);
+
+  const selectMuseums = (museumIds: string[]) => {
+    setCurationState(prev => ({
+      ...prev,
+      selectedMuseums: museumIds,
+    }));
+  };
 
   const toggleMuseum = (museumId: string) => {
     setCurationState(prev => ({
@@ -51,6 +59,7 @@ export function CurationProvider({ children }: { children: React.ReactNode }) {
     <CurationContext.Provider
       value={{
         curationState,
+        selectMuseums,
         toggleMuseum,
         toggleExhibit,
         isMuseumSelected,

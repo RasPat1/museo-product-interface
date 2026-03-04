@@ -3,7 +3,7 @@ import { useCuration } from '../context/CurationContext';
 import { exhibits } from '../data/exhibits';
 import { museums } from '../data/museums';
 import { ExhibitCard } from '../components/ExhibitCard';
-import { ArrowLeft, Calendar, Filter, Landmark } from 'lucide-react';
+import { ArrowLeft, Calendar, Filter, Landmark, Search } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { sortByClosingSoonest, getMuseumIdsFromExhibits } from '../utils/exhibitHelpers';
@@ -85,86 +85,112 @@ export function Exhibits() {
       </header>
 
       <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Museum Filter */}
-        {museumIds.length > 1 && (
-          <div className="mb-4 flex items-center gap-3">
-            <Landmark className="w-5 h-5 text-black/40 shrink-0" />
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={() => { setMuseumFilter('all'); setCategoryFilter('all'); }}
-                className={`px-4 py-2 rounded-full text-sm transition-colors ${
-                  museumFilter === 'all'
-                    ? 'bg-black text-white'
-                    : 'bg-black/5 text-black/70 hover:bg-black/10'
-                }`}
-              >
-                All Museums
-              </button>
-              {museumIds.map(id => {
-                const museum = museums.find(m => m.id === id);
-                return (
+        {filteredExhibits.length === 0 ? (
+          /* Zero-state: museums selected but no exhibits available */
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-24 max-w-md mx-auto"
+          >
+            <div className="w-16 h-16 rounded-full bg-black/5 flex items-center justify-center mx-auto mb-6">
+              <Search className="w-7 h-7 text-black/30" />
+            </div>
+            <h3 className="text-xl font-medium mb-3">No exhibits yet</h3>
+            <p className="text-black/50 mb-8">
+              We're still gathering exhibit information for these museums. Check back soon or explore another city.
+            </p>
+            <button
+              onClick={() => navigate('/')}
+              className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-black/90 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to cities
+            </button>
+          </motion.div>
+        ) : (
+          <>
+            {/* Museum Filter */}
+            {museumIds.length > 1 && (
+              <div className="mb-4 flex items-center gap-3">
+                <Landmark className="w-5 h-5 text-black/40 shrink-0" />
+                <div className="flex flex-wrap gap-2">
                   <button
-                    key={id}
-                    onClick={() => { setMuseumFilter(id); setCategoryFilter('all'); }}
+                    onClick={() => { setMuseumFilter('all'); setCategoryFilter('all'); }}
                     className={`px-4 py-2 rounded-full text-sm transition-colors ${
-                      museumFilter === id
+                      museumFilter === 'all'
                         ? 'bg-black text-white'
                         : 'bg-black/5 text-black/70 hover:bg-black/10'
                     }`}
                   >
-                    {museum?.name ?? id}
+                    All Museums
                   </button>
-                );
-              })}
+                  {museumIds.map(id => {
+                    const museum = museums.find(m => m.id === id);
+                    return (
+                      <button
+                        key={id}
+                        onClick={() => { setMuseumFilter(id); setCategoryFilter('all'); }}
+                        className={`px-4 py-2 rounded-full text-sm transition-colors ${
+                          museumFilter === id
+                            ? 'bg-black text-white'
+                            : 'bg-black/5 text-black/70 hover:bg-black/10'
+                        }`}
+                      >
+                        {museum?.name ?? id}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Category Filter */}
+            <div className="mb-8 flex items-center gap-3">
+              <Filter className="w-5 h-5 text-black/40 shrink-0" />
+              <div className="flex flex-wrap gap-2">
+                {categories.map(category => (
+                  <button
+                    key={category}
+                    onClick={() => setCategoryFilter(category)}
+                    className={`px-4 py-2 rounded-full text-sm transition-colors ${
+                      categoryFilter === category
+                        ? 'bg-black text-white'
+                        : 'bg-black/5 text-black/70 hover:bg-black/10'
+                    }`}
+                  >
+                    {category === 'all' ? 'All Categories' : category}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
 
-        {/* Category Filter */}
-        <div className="mb-8 flex items-center gap-3">
-          <Filter className="w-5 h-5 text-black/40 shrink-0" />
-          <div className="flex flex-wrap gap-2">
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => setCategoryFilter(category)}
-                className={`px-4 py-2 rounded-full text-sm transition-colors ${
-                  categoryFilter === category
-                    ? 'bg-black text-white'
-                    : 'bg-black/5 text-black/70 hover:bg-black/10'
-                }`}
+            {/* Exhibits Grid */}
+            {displayedExhibits.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {displayedExhibits.map((exhibit) => (
+                  <ExhibitCard key={exhibit.id} exhibit={exhibit} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-black/40">No exhibits found in this category.</p>
+              </div>
+            )}
+
+            {/* Bottom hint */}
+            {interestedCount === 0 && displayedExhibits.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="text-center mt-12"
               >
-                {category === 'all' ? 'All Categories' : category}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Exhibits Grid */}
-        {displayedExhibits.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayedExhibits.map((exhibit) => (
-              <ExhibitCard key={exhibit.id} exhibit={exhibit} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-16">
-            <p className="text-black/40">No exhibits found in this category.</p>
-          </div>
-        )}
-
-        {/* Bottom hint */}
-        {interestedCount === 0 && displayedExhibits.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-center mt-12"
-          >
-            <p className="text-black/40 text-sm">
-              Click the heart icon to mark exhibits you're interested in
-            </p>
-          </motion.div>
+                <p className="text-black/40 text-sm">
+                  Click the heart icon to mark exhibits you're interested in
+                </p>
+              </motion.div>
+            )}
+          </>
         )}
       </div>
     </div>
