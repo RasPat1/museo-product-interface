@@ -1,7 +1,7 @@
 import { Exhibit } from '../types';
 import { useCuration } from '../context/CurationContext';
 import { museums } from '../data/museums';
-import { Heart, MapPin, Calendar } from 'lucide-react';
+import { Heart, MapPin, Calendar, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 import { format } from 'date-fns';
 
@@ -63,6 +63,18 @@ export function ExhibitCard({ exhibit }: ExhibitCardProps) {
             <span>{startDate} – {endDate}</span>
           </div>
         </div>
+
+        {exhibit.url && (
+          <a
+            href={exhibit.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 text-sm text-black/60 hover:text-black transition-colors"
+          >
+            View exhibit page
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        )}
       </div>
     </motion.div>
   );

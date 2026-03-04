@@ -179,9 +179,22 @@ export function CalendarPage() {
                     <div className="flex-1 min-w-0">
                       <h4 className="mb-1 text-sm">{exhibit.title}</h4>
                       <p className="text-xs text-black/60 mb-2">{museum?.name}</p>
-                      <p className="text-xs text-black/40">
-                        {startDate} – {endDate}
-                      </p>
+                      <div className="flex items-center gap-3">
+                        <p className="text-xs text-black/40">
+                          {startDate} – {endDate}
+                        </p>
+                        {exhibit.url && (
+                          <a
+                            href={exhibit.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs text-black/40 hover:text-black transition-colors"
+                          >
+                            View page
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </motion.div>

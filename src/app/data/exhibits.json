@@ -2,32 +2,233 @@
   {
     "id": "lacma-1",
     "museumId": "lacma",
-    "title": "Deep Cuts: Block Printing Across Cultures",
-    "description": "Explores the world's oldest method of making multiple images, with more than 150 works from Asia, Europe, and the Americas presented through textiles, prints, and books.",
-    "startDate": "2025-11-09",
-    "endDate": "2026-09-13",
+    "title": "Alfonso Gonzalez Jr.: In Between Stops",
+    "description": "12 benches designed by the Los Angeles-based artist installed along LACMA's Kendall Concourse.",
+    "startDate": "2026-02-22",
+    "endDate": "2026-12-01",
     "imageUrl": "https://images.unsplash.com/photo-1707068226685-27a15039f19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwYXJ0aWZhY3RzJTIwbXVzZXVtfGVufDF8fHx8MTc3MjU4ODU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Printmaking"
+    "category": "Public Art",
+    "url": "https://www.lacma.org/art/exhibition/alfonso-gonzalez-jr-between-stops"
   },
   {
     "id": "lacma-2",
-    "museumId": "lacma",
-    "title": "Village Square: Gifts of Modern Art from the Pearlman Collection",
-    "description": "Nearly 50 paintings, sculptures, and works on paper featuring expressive landscapes and portraits by Cezanne, Degas, Manet, Modigliani, Soutine, and Toulouse-Lautrec.",
-    "startDate": "2026-02-22",
-    "endDate": "2026-07-19",
-    "imageUrl": "https://images.unsplash.com/photo-1717769165971-c81dfab13a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1vZGVybiUyMHBhaW50aW5nfGVufDF8fHx8MTc3MjU3NDY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Modern Art"
-  },
-  {
-    "id": "lacma-3",
     "museumId": "lacma",
     "title": "SUENO PERRO: A Film Installation by Alejandro G. Inarritu",
     "description": "A multisensory installation at the intersection of cinema and visual art, marking the 25th anniversary of the Academy Award-winning filmmaker's debut feature Amores Perros.",
     "startDate": "2026-02-22",
     "endDate": "2026-07-26",
     "imageUrl": "https://images.unsplash.com/photo-1574367157590-3454fe866961?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5JTIwaW50ZXJpb3J8ZW58MXx8fHwxNzcyNDk5MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Film & Installation"
+    "category": "Film & Installation",
+    "url": "https://www.lacma.org/art/exhibition/sueno-perro-film-installation-alejandro-g-inarritu"
+  },
+  {
+    "id": "lacma-3",
+    "museumId": "lacma",
+    "title": "Village Square: Gifts of Modern Art from the Pearlman Collection",
+    "description": "Nearly 50 paintings, sculptures, and works on paper featuring expressive landscapes and portraits by Cezanne, Degas, Manet, Modigliani, Soutine, and Toulouse-Lautrec.",
+    "startDate": "2026-02-22",
+    "endDate": "2026-07-19",
+    "imageUrl": "https://images.unsplash.com/photo-1717769165971-c81dfab13a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1vZGVybiUyMHBhaW50aW5nfGVufDF8fHx8MTc3MjU3NDY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Modern Art",
+    "url": "https://www.lacma.org/art/exhibition/village-square-gifts-modern-art-pearlman-collection-brooklyn-museum-lacma-and-moma"
+  },
+  {
+    "id": "lacma-4",
+    "museumId": "lacma",
+    "title": "Futbol Is Life: Animated Sportraits by Lyndon J. Barrois, Sr.",
+    "description": "Works celebrating the World Cup's arrival in Los Angeles.",
+    "startDate": "2026-02-15",
+    "endDate": "2026-07-26",
+    "imageUrl": "https://images.unsplash.com/photo-1707068226685-27a15039f19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwYXJ0aWZhY3RzJTIwbXVzZXVtfGVufDF8fHx8MTc3MjU4ODU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Digital Art",
+    "url": "https://www.lacma.org/art/exhibition/futbol-life-animated-sportraits-lyndon-j-barrois-sr"
+  },
+  {
+    "id": "lacma-5",
+    "museumId": "lacma",
+    "title": "Collecting Impressionism at LACMA",
+    "description": "Explores 19th-century French visual culture beyond traditional painting media.",
+    "startDate": "2025-12-21",
+    "endDate": "2027-01-03",
+    "imageUrl": "https://images.unsplash.com/photo-1717769165971-c81dfab13a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1vZGVybiUyMHBhaW50aW5nfGVufDF8fHx8MTc3MjU3NDY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Impressionism",
+    "url": "https://www.lacma.org/art/exhibition/collecting-impressionism-lacma"
+  },
+  {
+    "id": "lacma-6",
+    "museumId": "lacma",
+    "title": "Arp-Klee: With Selections from the Janice and Henri Lazarof Collection",
+    "description": "Modern art works on paper alongside paintings and sculptures.",
+    "startDate": "2025-11-21",
+    "endDate": "2026-05-31",
+    "imageUrl": "https://images.unsplash.com/photo-1574367157590-3454fe866961?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5JTIwaW50ZXJpb3J8ZW58MXx8fHwxNzcyNDk5MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Modern Art",
+    "url": "https://www.lacma.org/art/exhibition/arp-klee-selections-janice-and-henri-lazarof-collection"
+  },
+  {
+    "id": "lacma-7",
+    "museumId": "lacma",
+    "title": "Austrian Expressionism and Otto Kallir",
+    "description": "Celebrates Otto Kallir's legacy as scholar and gallerist of Austrian Expressionism.",
+    "startDate": "2025-11-21",
+    "endDate": "2026-05-31",
+    "imageUrl": "https://images.unsplash.com/photo-1707068226685-27a15039f19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwYXJ0aWZhY3RzJTIwbXVzZXVtfGVufDF8fHx8MTc3MjU4ODU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Expressionism",
+    "url": "https://www.lacma.org/art/exhibition/austrian-expressionism-and-otto-kallir"
+  },
+  {
+    "id": "lacma-8",
+    "museumId": "lacma",
+    "title": "Deep Cuts: Block Printing Across Cultures",
+    "description": "Explores the world's oldest method of making multiple images, with more than 150 works from Asia, Europe, and the Americas presented through textiles, prints, and books.",
+    "startDate": "2025-11-09",
+    "endDate": "2026-09-13",
+    "imageUrl": "https://images.unsplash.com/photo-1707068226685-27a15039f19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwYXJ0aWZhY3RzJTIwbXVzZXVtfGVufDF8fHx8MTc3MjU4ODU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Printmaking",
+    "url": "https://www.lacma.org/art/exhibition/deep-cuts-block-printing-across-cultures"
+  },
+  {
+    "id": "lacma-9",
+    "museumId": "lacma",
+    "title": "Tavares Strachan: The Day Tomorrow Began",
+    "description": "A multidisciplinary exhibition by Tavares Strachan exploring themes of visibility, invisibility, and the politics of knowledge.",
+    "startDate": "2025-10-12",
+    "endDate": "2026-03-29",
+    "imageUrl": "https://images.unsplash.com/photo-1574367157590-3454fe866961?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5JTIwaW50ZXJpb3J8ZW58MXx8fHwxNzcyNDk5MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Contemporary Art",
+    "url": "https://www.lacma.org/art/exhibition/tavares-strachan-day-tomorrow-began"
+  },
+  {
+    "id": "lacma-10",
+    "museumId": "lacma",
+    "title": "Deep Time Cinematography",
+    "description": "An outdoor installation exploring deep geological time through the lens of cinema.",
+    "startDate": "2025-09-14",
+    "endDate": "2027-12-31",
+    "imageUrl": "https://images.unsplash.com/photo-1707068226685-27a15039f19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwYXJ0aWZhY3RzJTIwbXVzZXVtfGVufDF8fHx8MTc3MjU4ODU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Film & Installation",
+    "url": "https://www.lacma.org/art/exhibition/deep-time-cinematography"
+  },
+  {
+    "id": "lacma-11",
+    "museumId": "lacma",
+    "title": "Grounded",
+    "description": "An exhibition exploring connections between art, land, and ecological awareness.",
+    "startDate": "2025-09-14",
+    "endDate": "2026-06-21",
+    "imageUrl": "https://images.unsplash.com/photo-1717769165971-c81dfab13a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1vZGVybiUyMHBhaW50aW5nfGVufDF8fHx8MTc3MjU3NDY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Contemporary Art",
+    "url": "https://www.lacma.org/art/exhibition/grounded"
+  },
+  {
+    "id": "lacma-12",
+    "museumId": "lacma",
+    "title": "john gerrard: SPIRITS",
+    "description": "A digital and mobile art experience exploring the intersection of technology and the natural world.",
+    "startDate": "2025-12-21",
+    "endDate": "2026-12-21",
+    "imageUrl": "https://images.unsplash.com/photo-1574367157590-3454fe866961?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5JTIwaW50ZXJpb3J8ZW58MXx8fHwxNzcyNDk5MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Digital Art",
+    "url": "https://www.lacma.org/art/exhibition/john-gerrard-spirits"
+  },
+  {
+    "id": "lacma-13",
+    "museumId": "lacma",
+    "title": "Realms of the Dharma: Buddhist Art Across Asia",
+    "description": "A survey of Buddhist art spanning centuries and cultures across Asia.",
+    "startDate": "2025-05-11",
+    "endDate": "2026-07-12",
+    "imageUrl": "https://images.unsplash.com/photo-1707068226685-27a15039f19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwYXJ0aWZhY3RzJTIwbXVzZXVtfGVufDF8fHx8MTc3MjU4ODU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Asian Art",
+    "url": "https://www.lacma.org/art/exhibition/realms-dharma-buddhist-art-across-asia"
+  },
+  {
+    "id": "lacma-14",
+    "museumId": "lacma",
+    "title": "Josiah McElheny: Island Universe",
+    "description": "A large-scale hanging sculpture of chrome and hand-blown glass inspired by cosmological models of the multiverse.",
+    "startDate": "2024-09-12",
+    "endDate": "2026-06-06",
+    "imageUrl": "https://images.unsplash.com/photo-1574367157590-3454fe866961?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5JTIwaW50ZXJpb3J8ZW58MXx8fHwxNzcyNDk5MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Sculpture",
+    "url": "https://www.lacma.org/art/exhibition/josiah-mcelheny-island-universe"
+  },
+  {
+    "id": "lacma-15",
+    "museumId": "lacma",
+    "title": "Ai Weiwei: Circle of Animals/Zodiac Heads",
+    "description": "Bronze sculptures of the 12 Chinese zodiac animal heads, referencing the fountain clock of the Old Summer Palace in Beijing.",
+    "startDate": "2022-03-26",
+    "endDate": "2027-12-31",
+    "imageUrl": "https://images.unsplash.com/photo-1707068226685-27a15039f19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwYXJ0aWZhY3RzJTIwbXVzZXVtfGVufDF8fHx8MTc3MjU4ODU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Sculpture",
+    "url": "https://www.lacma.org/art/exhibition/ai-weiwei-circle-animals-zodiac-heads"
+  },
+  {
+    "id": "lacma-16",
+    "museumId": "lacma",
+    "title": "Mark Bradford: 150 Portrait Tone",
+    "description": "A mural-size composition containing elements of both abstraction and realism.",
+    "startDate": "2021-06-13",
+    "endDate": "2027-12-31",
+    "imageUrl": "https://images.unsplash.com/photo-1717769165971-c81dfab13a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1vZGVybiUyMHBhaW50aW5nfGVufDF8fHx8MTc3MjU3NDY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Contemporary Art",
+    "url": "https://www.lacma.org/art/exhibition/mark-bradford-150-portrait-tone"
+  },
+  {
+    "id": "lacma-17",
+    "museumId": "lacma",
+    "title": "Miracle Mile",
+    "description": "Robert Irwin's work investigating perception and the experience of art.",
+    "startDate": "2021-06-13",
+    "endDate": "2027-12-31",
+    "imageUrl": "https://images.unsplash.com/photo-1574367157590-3454fe866961?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5JTIwaW50ZXJpb3J8ZW58MXx8fHwxNzcyNDk5MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Installation",
+    "url": "https://www.lacma.org/art/exhibition/miracle-mile"
+  },
+  {
+    "id": "lacma-18",
+    "museumId": "lacma",
+    "title": "Barbara Kruger: Untitled (Shafted)",
+    "description": "Features advertising text and sharp, poetic phrases that criticize consumerism, misogyny, power, and desire.",
+    "startDate": "2021-06-13",
+    "endDate": "2027-12-31",
+    "imageUrl": "https://images.unsplash.com/photo-1707068226685-27a15039f19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwYXJ0aWZhY3RzJTIwbXVzZXVtfGVufDF8fHx8MTc3MjU4ODU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Contemporary Art",
+    "url": "https://www.lacma.org/art/exhibition/barbara-kruger-untitled-shafted"
+  },
+  {
+    "id": "lacma-19",
+    "museumId": "lacma",
+    "title": "Richard Serra: Band",
+    "description": "A monumental steel sculpture from 2006 representing the fullest expression of Serra's formal vocabulary.",
+    "startDate": "2021-06-13",
+    "endDate": "2027-12-31",
+    "imageUrl": "https://images.unsplash.com/photo-1574367157590-3454fe866961?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5JTIwaW50ZXJpb3J8ZW58MXx8fHwxNzcyNDk5MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Sculpture",
+    "url": "https://www.lacma.org/art/exhibition/richard-serra-band"
+  },
+  {
+    "id": "lacma-20",
+    "museumId": "lacma",
+    "title": "Metropolis II",
+    "description": "An intense kinetic sculpture modeled after a fast-paced, frenetic modern city.",
+    "startDate": "2021-06-13",
+    "endDate": "2027-12-31",
+    "imageUrl": "https://images.unsplash.com/photo-1717769165971-c81dfab13a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1vZGVybiUyMHBhaW50aW5nfGVufDF8fHx8MTc3MjU3NDY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Kinetic Art",
+    "url": "https://www.lacma.org/art/exhibition/metropolis-ii"
+  },
+  {
+    "id": "lacma-21",
+    "museumId": "lacma",
+    "title": "Modern Art",
+    "description": "LACMA's permanent collection of modern art on view at BCAM, Level 3.",
+    "startDate": "2021-06-13",
+    "endDate": "2027-12-31",
+    "imageUrl": "https://images.unsplash.com/photo-1707068226685-27a15039f19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwYXJ0aWZhY3RzJTIwbXVzZXVtfGVufDF8fHx8MTc3MjU4ODU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "category": "Modern Art",
+    "url": "https://www.lacma.org/art/exhibition/modern-art"
   },
   {
     "id": "broad-1",
@@ -37,7 +238,8 @@
     "startDate": "2025-11-22",
     "endDate": "2026-04-05",
     "imageUrl": "https://images.unsplash.com/photo-1731322292458-79e4d358d074?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY3VscHR1cmUlMjBjb250ZW1wb3JhcnklMjBhcnR8ZW58MXx8fHwxNzcyNTg4NTQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Sculpture & Installation"
+    "category": "Sculpture & Installation",
+    "url": "https://www.thebroad.org/art/special-exhibitions/robert-therrien-story"
   },
   {
     "id": "broad-2",
@@ -47,7 +249,8 @@
     "startDate": "2026-05-23",
     "endDate": "2026-10-11",
     "imageUrl": "https://images.unsplash.com/photo-1574367157590-3454fe866961?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5JTIwaW50ZXJpb3J8ZW58MXx8fHwxNzcyNDk5MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Interactive & Multimedia"
+    "category": "Interactive & Multimedia",
+    "url": "https://www.thebroad.org/art/special-exhibitions/yoko-ono-music-mind"
   },
   {
     "id": "nhm-1",
@@ -57,7 +260,8 @@
     "startDate": "2026-02-20",
     "endDate": "2026-12-31",
     "imageUrl": "https://images.unsplash.com/photo-1548980397-dda45023c130?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuYXR1cmFsJTIwaGlzdG9yeSUyMG11c2V1bSUyMGRpbm9zYXVyfGVufDF8fHx8MTc3MjU1ODU2MHww&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Gems & Minerals"
+    "category": "Gems & Minerals",
+    "url": "https://nhm.org/unearthed-rare-mineral-exhibition"
   },
   {
     "id": "nhm-2",
@@ -67,7 +271,8 @@
     "startDate": "2024-11-01",
     "endDate": "2026-12-31",
     "imageUrl": "https://images.unsplash.com/photo-1745273111692-331121c8be1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2llbmNlJTIwbXVzZXVtJTIwZXhoaWJpdHN8ZW58MXx8fHwxNzcyNTMyMTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Photography & Science"
+    "category": "Photography & Science",
+    "url": "https://nhm.org/calendar/collective-knowledge-our-changing-world"
   },
   {
     "id": "cs-1",
@@ -77,7 +282,8 @@
     "startDate": "2026-02-07",
     "endDate": "2026-09-07",
     "imageUrl": "https://images.unsplash.com/photo-1745273111692-331121c8be1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2llbmNlJTIwbXVzZXVtJTIwZXhoaWJpdHN8ZW58MXx8fHwxNzcyNTMyMTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Archaeology & History"
+    "category": "Archaeology & History",
+    "url": "https://californiasciencecenter.org/exhibits/mummies-of-the-world"
   },
   {
     "id": "cs-2",
@@ -87,7 +293,8 @@
     "startDate": "2025-06-01",
     "endDate": "2026-05-12",
     "imageUrl": "https://images.unsplash.com/photo-1745273111692-331121c8be1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2llbmNlJTIwbXVzZXVtJTIwZXhoaWJpdHN8ZW58MXx8fHwxNzcyNTMyMTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Science & Sports"
+    "category": "Science & Sports",
+    "url": "https://californiasciencecenter.org/exhibits/game-on"
   },
   {
     "id": "moca-1",
@@ -97,7 +304,8 @@
     "startDate": "2025-10-23",
     "endDate": "2026-05-03",
     "imageUrl": "https://images.unsplash.com/photo-1717769165971-c81dfab13a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1vZGVybiUyMHBhaW50aW5nfGVufDF8fHx8MTc3MjU3NDY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Political Art"
+    "category": "Political Art",
+    "url": "https://www.moca.org/exhibition/monuments"
   },
   {
     "id": "moca-2",
@@ -107,7 +315,8 @@
     "startDate": "2026-02-24",
     "endDate": "2026-08-02",
     "imageUrl": "https://images.unsplash.com/photo-1717769165971-c81dfab13a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1vZGVybiUyMHBhaW50aW5nfGVufDF8fHx8MTc3MjU3NDY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Installation & Sound Art"
+    "category": "Installation & Sound Art",
+    "url": "https://www.moca.org/exhibition/haegue-yang"
   },
   {
     "id": "getty-1",
@@ -117,7 +326,8 @@
     "startDate": "2026-02-24",
     "endDate": "2026-06-14",
     "imageUrl": "https://images.unsplash.com/photo-1742497359858-8e0a442c9c55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoeSUyMGV4aGliaXRpb24lMjBnYWxsZXJ5fGVufDF8fHx8MTc3MjU4ODU0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Photography"
+    "category": "Photography",
+    "url": "https://www.getty.edu/exhibitions/black-arts-movement"
   },
   {
     "id": "getty-2",
@@ -127,7 +337,8 @@
     "startDate": "2026-01-27",
     "endDate": "2026-04-19",
     "imageUrl": "https://images.unsplash.com/photo-1707068226685-27a15039f19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmNpZW50JTIwYXJ0aWZhY3RzJTIwbXVzZXVtfGVufDF8fHx8MTc3MjU4ODU0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Medieval Art"
+    "category": "Medieval Art",
+    "url": "https://www.getty.edu/exhibitions/creation-story"
   },
   {
     "id": "getty-3",
@@ -137,6 +348,7 @@
     "startDate": "2025-11-18",
     "endDate": "2026-04-12",
     "imageUrl": "https://images.unsplash.com/photo-1742497359858-8e0a442c9c55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoeSUyMGV4aGliaXRpb24lMjBnYWxsZXJ5fGVufDF8fHx8MTc3MjU4ODU0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-    "category": "Feminist Art"
+    "category": "Feminist Art",
+    "url": "https://www.getty.edu/exhibitions/guerrilla-girls"
   }
 ]

@@ -4,18 +4,21 @@
  * This module will eventually scrape real exhibit data from museum websites.
  * For now, it loads data from local JSON files that were manually curated.
  *
- * TODO: Implement scrapers for each museum website:
+ * Data sources (last scraped: 2026-03-03):
  *   - LACMA:              https://www.lacma.org/art/exhibitions/current
+ *                         NOTE: Page has "Load More" button — paginated via ?page=0, ?page=1, ?page=2
  *   - The Broad:          https://www.thebroad.org/art
  *   - NHM LA:             https://nhm.org/experience-nhm/exhibitions-natural-history-museum
  *   - CA Science Center:  https://californiasciencecenter.org/exhibits
  *   - MOCA:               https://www.moca.org/exhibitions
  *   - Getty Center:       https://www.getty.edu/exhibitions/
  *
+ * TODO: Implement automated scrapers for each museum website.
  * Suggested approach:
  *   1. Use a server-side script (Node.js) with cheerio or puppeteer
  *   2. Run on a schedule (e.g. weekly cron) to refresh the JSON files
  *   3. Output to src/app/data/museums.json and src/app/data/exhibits.json
+ *   4. For LACMA, iterate pages until no more results (Load More pattern)
  */
 
 import type { Museum, Exhibit } from '../types';

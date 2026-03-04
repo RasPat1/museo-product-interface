@@ -16,6 +16,7 @@ export interface Exhibit {
   endDate: string;
   imageUrl: string;
   category: string;
+  url: string;
 }
 
 export interface CurationState {
