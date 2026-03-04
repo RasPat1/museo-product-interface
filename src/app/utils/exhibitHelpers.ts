@@ -13,3 +13,7 @@ export function sortByClosingSoonest(exhibits: Exhibit[]): Exhibit[] {
     (a, b) => new Date(a.endDate).getTime() - new Date(b.endDate).getTime()
   );
 }
+
+export function getMuseumIdsFromExhibits(exhibits: Exhibit[]): string[] {
+  return Array.from(new Set(exhibits.map(e => e.museumId)));
+}

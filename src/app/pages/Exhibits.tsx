@@ -3,29 +3,43 @@ import { useCuration } from '../context/CurationContext';
 import { exhibits } from '../data/exhibits';
 import { museums } from '../data/museums';
 import { ExhibitCard } from '../components/ExhibitCard';
-import { ArrowLeft, Calendar, Filter } from 'lucide-react';
+import { ArrowLeft, Calendar, Filter, Landmark } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import { sortByClosingSoonest } from '../utils/exhibitHelpers';
+import { sortByClosingSoonest, getMuseumIdsFromExhibits } from '../utils/exhibitHelpers';
 
 export function Exhibits() {
   const navigate = useNavigate();
   const { curationState, isMuseumSelected } = useCuration();
+  const [museumFilter, setMuseumFilter] = useState<string>('all');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
 
-  // Filter exhibits by selected museums
+  // Filter exhibits by selected museums from home page
   const filteredExhibits = exhibits.filter(exhibit =>
     isMuseumSelected(exhibit.museumId)
   );
 
-  // Get unique categories
-  const categories = ['all', ...Array.from(new Set(filteredExhibits.map(e => e.category)))];
+  // Derive museum list dynamically from available exhibits
+  const museumIds = getMuseumIdsFromExhibits(filteredExhibits);
+
+  // Apply museum filter
+  const museumFiltered = museumFilter === 'all'
+    ? filteredExhibits
+    : filteredExhibits.filter(e => e.museumId === museumFilter);
+
+  // Get unique categories from museum-filtered exhibits
+  const categories = ['all', ...Array.from(new Set(museumFiltered.map(e => e.category)))];
+
+  // Reset category filter if current selection is no longer available
+  if (categoryFilter !== 'all' && !categories.includes(categoryFilter)) {
+    setCategoryFilter('all');
+  }
 
   // Apply category filter, then sort by closing soonest first
   const displayedExhibits = sortByClosingSoonest(
     categoryFilter === 'all'
-      ? filteredExhibits
-      : filteredExhibits.filter(e => e.category === categoryFilter)
+      ? museumFiltered
+      : museumFiltered.filter(e => e.category === categoryFilter)
   );
 
   const interestedCount = curationState.interestedExhibits.length;
@@ -71,9 +85,44 @@ export function Exhibits() {
       </header>
 
       <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Filter Bar */}
+        {/* Museum Filter */}
+        {museumIds.length > 1 && (
+          <div className="mb-4 flex items-center gap-3">
+            <Landmark className="w-5 h-5 text-black/40 shrink-0" />
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => { setMuseumFilter('all'); setCategoryFilter('all'); }}
+                className={`px-4 py-2 rounded-full text-sm transition-colors ${
+                  museumFilter === 'all'
+                    ? 'bg-black text-white'
+                    : 'bg-black/5 text-black/70 hover:bg-black/10'
+                }`}
+              >
+                All Museums
+              </button>
+              {museumIds.map(id => {
+                const museum = museums.find(m => m.id === id);
+                return (
+                  <button
+                    key={id}
+                    onClick={() => { setMuseumFilter(id); setCategoryFilter('all'); }}
+                    className={`px-4 py-2 rounded-full text-sm transition-colors ${
+                      museumFilter === id
+                        ? 'bg-black text-white'
+                        : 'bg-black/5 text-black/70 hover:bg-black/10'
+                    }`}
+                  >
+                    {museum?.name ?? id}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Category Filter */}
         <div className="mb-8 flex items-center gap-3">
-          <Filter className="w-5 h-5 text-black/40" />
+          <Filter className="w-5 h-5 text-black/40 shrink-0" />
           <div className="flex flex-wrap gap-2">
             {categories.map(category => (
               <button

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isLeavingSoon, sortByClosingSoonest } from './exhibitHelpers';
+import { isLeavingSoon, sortByClosingSoonest, getMuseumIdsFromExhibits } from './exhibitHelpers';
 import type { Exhibit } from '../types';
 
 function makeExhibit(overrides: Partial<Exhibit> = {}): Exhibit {
@@ -89,5 +89,41 @@ describe('sortByClosingSoonest', () => {
 
   it('returns empty array for empty input', () => {
     expect(sortByClosingSoonest([])).toEqual([]);
+  });
+});
+
+describe('getMuseumIdsFromExhibits', () => {
+  it('returns unique museum IDs from exhibits', () => {
+    const exhibits = [
+      makeExhibit({ id: 'a', museumId: 'lacma' }),
+      makeExhibit({ id: 'b', museumId: 'getty' }),
+      makeExhibit({ id: 'c', museumId: 'lacma' }),
+    ];
+
+    expect(getMuseumIdsFromExhibits(exhibits)).toEqual(['lacma', 'getty']);
+  });
+
+  it('preserves insertion order (first occurrence)', () => {
+    const exhibits = [
+      makeExhibit({ id: 'a', museumId: 'moca' }),
+      makeExhibit({ id: 'b', museumId: 'broad' }),
+      makeExhibit({ id: 'c', museumId: 'getty' }),
+      makeExhibit({ id: 'd', museumId: 'broad' }),
+    ];
+
+    expect(getMuseumIdsFromExhibits(exhibits)).toEqual(['moca', 'broad', 'getty']);
+  });
+
+  it('returns empty array for empty input', () => {
+    expect(getMuseumIdsFromExhibits([])).toEqual([]);
+  });
+
+  it('returns single museum when all exhibits are from same museum', () => {
+    const exhibits = [
+      makeExhibit({ id: 'a', museumId: 'lacma' }),
+      makeExhibit({ id: 'b', museumId: 'lacma' }),
+    ];
+
+    expect(getMuseumIdsFromExhibits(exhibits)).toEqual(['lacma']);
   });
 });
