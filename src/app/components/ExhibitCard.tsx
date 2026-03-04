@@ -1,7 +1,7 @@
 import { Exhibit } from '../types';
 import { useCuration } from '../context/CurationContext';
 import { museums } from '../data/museums';
-import { Heart, MapPin, Calendar, ExternalLink } from 'lucide-react';
+import { CalendarPlus, CalendarCheck, MapPin, Calendar, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 import { format } from 'date-fns';
 import { isLeavingSoon } from '../utils/exhibitHelpers';
@@ -37,16 +37,6 @@ export function ExhibitCard({ exhibit }: ExhibitCardProps) {
             Leaving soon
           </span>
         )}
-        <button
-          onClick={() => toggleExhibit(exhibit.id)}
-          className={`absolute top-4 right-4 w-12 h-12 rounded-full backdrop-blur-md flex items-center justify-center transition-all ${
-            interested
-              ? 'bg-black text-white'
-              : 'bg-white/80 text-black hover:bg-white'
-          }`}
-        >
-          <Heart className={`w-5 h-5 ${interested ? 'fill-current' : ''}`} />
-        </button>
       </div>
 
       <div className="p-6">
@@ -82,6 +72,27 @@ export function ExhibitCard({ exhibit }: ExhibitCardProps) {
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         )}
+
+        <button
+          onClick={() => toggleExhibit(exhibit.id)}
+          className={`mt-4 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-colors ${
+            interested
+              ? 'bg-black/5 text-black/70 hover:bg-black/10'
+              : 'bg-black text-white hover:bg-black/90'
+          }`}
+        >
+          {interested ? (
+            <>
+              <CalendarCheck className="w-4 h-4" />
+              Remove from Calendar
+            </>
+          ) : (
+            <>
+              <CalendarPlus className="w-4 h-4" />
+              Add to Calendar
+            </>
+          )}
+        </button>
       </div>
     </motion.div>
   );
