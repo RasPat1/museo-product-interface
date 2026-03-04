@@ -10,8 +10,28 @@ import { scrape as scrapeNhm } from './nhm';
 import { scrape as scrapeCaliforniaScience } from './california-science';
 import { scrape as scrapeMet } from './met';
 import { scrape as scrapeMoma } from './moma';
+import { scrape as scrapeGuggenheim } from './guggenheim';
 
-import type { Exhibit } from '../../src/app/types/index';
+import type { Exhibit, Museum } from '../../src/app/types/index';
+
+const MUSEUMS_JSON_PATH = path.resolve(
+  import.meta.dirname,
+  '../../src/app/data/museums.json'
+);
+
+export function loadMuseumCategories(): Record<string, string> {
+  try {
+    const raw = fs.readFileSync(MUSEUMS_JSON_PATH, 'utf-8');
+    const museums: Museum[] = JSON.parse(raw);
+    const map: Record<string, string> = {};
+    for (const m of museums) {
+      map[m.id] = m.category;
+    }
+    return map;
+  } catch {
+    return {};
+  }
+}
 
 export const SCRAPERS: Record<string, ScraperFn> = {
   getty: scrapeGetty,
@@ -21,6 +41,7 @@ export const SCRAPERS: Record<string, ScraperFn> = {
   nhm: scrapeNhm,
   'california-science': scrapeCaliforniaScience,
   moma: scrapeMoma,
+  guggenheim: scrapeGuggenheim,
 };
 
 // Scrapers that return multiple results (one per venue)
@@ -33,7 +54,11 @@ const EXHIBITS_JSON_PATH = path.resolve(
   '../../src/app/data/exhibits.json'
 );
 
-export function scrapedToExhibit(museumId: string, scraped: ScrapedExhibit): Exhibit {
+export function scrapedToExhibit(
+  museumId: string,
+  scraped: ScrapedExhibit,
+  museumCategory?: string,
+): Exhibit {
   return {
     id: generateExhibitId(museumId, scraped.title),
     museumId,
@@ -42,17 +67,19 @@ export function scrapedToExhibit(museumId: string, scraped: ScrapedExhibit): Exh
     startDate: scraped.startDate || '',
     endDate: scraped.endDate || '',
     imageUrl: scraped.imageUrl || '',
-    category: scraped.category || '',
+    category: scraped.category || museumCategory || '',
     url: scraped.url || '',
   };
 }
 
 export function mergeResults(
   results: ScraperResult[],
-  existingExhibits: Exhibit[]
+  existingExhibits: Exhibit[],
+  museumCategories?: Record<string, string>,
 ): Exhibit[] {
   const merged: Exhibit[] = [];
   const succeededMuseums = new Set<string>();
+  const categories = museumCategories ?? loadMuseumCategories();
 
   for (const result of results) {
     if (result.exhibits.length > 0) {
@@ -70,7 +97,7 @@ export function mergeResults(
           }
         }
 
-        merged.push(scrapedToExhibit(result.museumId, scraped));
+        merged.push(scrapedToExhibit(result.museumId, scraped, categories[result.museumId]));
       }
     }
   }

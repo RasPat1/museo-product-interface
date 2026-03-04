@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mergeResults, scrapedToExhibit } from '../scrapers/index';
+import { mergeResults, scrapedToExhibit, loadMuseumCategories } from '../scrapers/index';
 import type { ScraperResult } from '../scrapers/types';
 import type { Exhibit } from '../../src/app/types/index';
 
@@ -39,8 +39,61 @@ describe('scrapedToExhibit', () => {
     expect(result.startDate).toBe('');
     expect(result.endDate).toBe('');
     expect(result.imageUrl).toBe('');
-    expect(result.category).toBe('');
     expect(result.url).toBe('');
+  });
+
+  it('falls back to museum category when scraped category is null', () => {
+    const result = scrapedToExhibit('getty', {
+      title: 'No Category',
+      description: '',
+      startDate: null,
+      endDate: null,
+      imageUrl: null,
+      category: null,
+      url: null,
+    }, 'Art');
+
+    expect(result.category).toBe('Art');
+  });
+
+  it('prefers scraped category over museum category', () => {
+    const result = scrapedToExhibit('met', {
+      title: 'Specific Show',
+      description: '',
+      startDate: null,
+      endDate: null,
+      imageUrl: null,
+      category: 'Medieval Art',
+      url: null,
+    }, 'Art');
+
+    expect(result.category).toBe('Medieval Art');
+  });
+
+  it('uses museum category as fallback so category is never empty', () => {
+    const result = scrapedToExhibit('guggenheim', {
+      title: 'Some Show',
+      description: '',
+      startDate: null,
+      endDate: null,
+      imageUrl: null,
+      category: null,
+      url: null,
+    }, 'Modern Art');
+
+    expect(result.category).toBe('Modern Art');
+    expect(result.category).not.toBe('');
+  });
+});
+
+describe('loadMuseumCategories', () => {
+  it('loads categories from museums.json', () => {
+    const categories = loadMuseumCategories();
+    expect(categories['guggenheim']).toBe('Modern Art');
+    expect(categories['met']).toBe('Art');
+    expect(categories['moma']).toBe('Modern Art');
+    expect(categories['broad']).toBe('Contemporary Art');
+    expect(categories['nhm']).toBe('Natural History');
   });
 });
 
@@ -89,7 +142,7 @@ describe('mergeResults', () => {
       },
     ];
 
-    const merged = mergeResults(results, existingExhibits);
+    const merged = mergeResults(results, existingExhibits, {});
     const gettyExhibits = merged.filter(e => e.museumId === 'getty');
     expect(gettyExhibits.length).toBe(1);
     expect(gettyExhibits[0].title).toBe('New Getty Show');
@@ -104,7 +157,7 @@ describe('mergeResults', () => {
       },
     ];
 
-    const merged = mergeResults(results, existingExhibits);
+    const merged = mergeResults(results, existingExhibits, {});
     const csExhibits = merged.filter(e => e.museumId === 'california-science');
     expect(csExhibits.length).toBe(1);
     expect(csExhibits[0].title).toBe('Existing CS Exhibit');
@@ -138,7 +191,7 @@ describe('mergeResults', () => {
       },
     ];
 
-    const merged = mergeResults(results, []);
+    const merged = mergeResults(results, [], {});
     expect(merged.length).toBe(1);
     expect(merged[0].title).toBe('Temporary Show');
   });
@@ -167,7 +220,7 @@ describe('mergeResults', () => {
       },
     ];
 
-    const merged = mergeResults(results, existingExhibits);
+    const merged = mergeResults(results, existingExhibits, {});
 
     // Scraped exhibit should have its URL
     const gettyExhibit = merged.find(e => e.museumId === 'getty');
@@ -197,7 +250,66 @@ describe('mergeResults', () => {
       },
     ];
 
-    const merged = mergeResults(results, []);
+    const merged = mergeResults(results, [], {});
     expect(merged.length).toBe(1);
+  });
+
+  it('assigns museum default category when scraped category is null', () => {
+    const results: ScraperResult[] = [
+      {
+        museumId: 'guggenheim',
+        exhibits: [
+          {
+            title: 'Carol Bove',
+            description: 'Sculpture survey',
+            startDate: '2026-03-05',
+            endDate: '2026-08-02',
+            imageUrl: null,
+            category: null,
+            url: null,
+          },
+        ],
+        errors: [],
+      },
+    ];
+
+    const merged = mergeResults(results, [], { guggenheim: 'Modern Art' });
+    expect(merged[0].category).toBe('Modern Art');
+  });
+
+  it('never writes empty category when museum category exists', () => {
+    const results: ScraperResult[] = [
+      {
+        museumId: 'getty',
+        exhibits: [
+          {
+            title: 'Show A',
+            description: '',
+            startDate: '2026-01-01',
+            endDate: '2026-06-01',
+            imageUrl: null,
+            category: null,
+            url: null,
+          },
+          {
+            title: 'Show B',
+            description: '',
+            startDate: '2026-02-01',
+            endDate: '2026-07-01',
+            imageUrl: null,
+            category: 'Photography',
+            url: null,
+          },
+        ],
+        errors: [],
+      },
+    ];
+
+    const merged = mergeResults(results, [], { getty: 'Art' });
+    for (const exhibit of merged) {
+      expect(exhibit.category).not.toBe('');
+    }
+    expect(merged[0].category).toBe('Art');
+    expect(merged[1].category).toBe('Photography');
   });
 });

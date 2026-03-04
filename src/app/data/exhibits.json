@@ -1,5 +1,93 @@
 [
   {
+    "id": "guggenheim-gabriele-mnter-contours-of-a-world",
+    "museumId": "guggenheim",
+    "title": "Gabriele Münter: Contours of a World",
+    "description": "Explore over seventy paintings and photographs that illuminate Gabriele Münter’s experimental practice and her role in shaping modern art in Europe.",
+    "startDate": "2025-11-07",
+    "endDate": "2026-04-26",
+    "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/09/Munter-1983.11_Cropped16x9.jpg",
+    "category": "Modern Art",
+    "url": "https://www.guggenheim.org/exhibition/gabriele-munter"
+  },
+  {
+    "id": "guggenheim-collection-in-focus-robert-rauschenberg-life-cant-be-stopped",
+    "museumId": "guggenheim",
+    "title": "Collection in Focus | Robert Rauschenberg: Life Can’t Be Stopped",
+    "description": "Explore the Guggenheim’s Rauschenberg exhibition, featuring Barge (1962–63) and more than a dozen key works marking the 100th anniversary of the artist’s birth.",
+    "startDate": "2025-10-10",
+    "endDate": "2026-05-03",
+    "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/07/Rauschenberg_Web_Image.jpg",
+    "category": "Modern Art",
+    "url": "https://www.guggenheim.org/exhibition/collection-in-focus-robert-rauschenberg-life-cant-be-stopped"
+  },
+  {
+    "id": "guggenheim-collection-in-focus-modern-european-currents",
+    "museumId": "guggenheim",
+    "title": "Collection in Focus | Modern European Currents",
+    "description": "See how artists like Natalia Goncharova, Vasily Kandinsky, and Franz Marc transformed painting in the early 20th century.",
+    "startDate": "2025-07-15",
+    "endDate": "2027-01-10",
+    "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/04/image001-e1753279408942.jpg",
+    "category": "Modern Art",
+    "url": "https://www.guggenheim.org/exhibition/collection-in-focus-modern-european-currents"
+  },
+  {
+    "id": "guggenheim-a-year-with-children-2026",
+    "museumId": "guggenheim",
+    "title": "A Year with Children 2026",
+    "description": "This annual exhibition features works created by students participating in the Guggenheim’s artist-in-residence program, Learning Through Art.",
+    "startDate": "2026-05-08",
+    "endDate": "2026-06-07",
+    "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/10/A-Year-with-Children-2025-exh_ph-2-LARGE-JPG-scaled.jpg",
+    "category": "Modern Art",
+    "url": "https://www.guggenheim.org/exhibition/a-year-with-children-2026"
+  },
+  {
+    "id": "guggenheim-carol-bove",
+    "museumId": "guggenheim",
+    "title": "Carol Bove",
+    "description": "From early drawings to monumental compositions in steel, Carol Bove’s first museum survey traces her inventive practice across 25 years.",
+    "startDate": "2026-03-05",
+    "endDate": "2026-08-02",
+    "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/10/25_Bove_Cropped_Op_01-scaled.jpg",
+    "category": "Modern Art",
+    "url": "https://www.guggenheim.org/exhibition/carol-bove"
+  },
+  {
+    "id": "guggenheim-guggenheim-pop",
+    "museumId": "guggenheim",
+    "title": "Guggenheim Pop",
+    "description": "From Andy Warhol to Maurizio Cattelan, this exhibition features Pop art from the collection and its enduring influence on contemporary artists.",
+    "startDate": "2026-06-05",
+    "endDate": "2027-01-10",
+    "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/10/67.1859.3_ph01-LARGE-TIF_cropped-scaled.jpg",
+    "category": "Modern Art",
+    "url": "https://www.guggenheim.org/exhibition/guggenheim-pop"
+  },
+  {
+    "id": "guggenheim-collection-in-focus-zidane-a-21st-century-portrait",
+    "museumId": "guggenheim",
+    "title": "Collection in Focus | Zidane, a 21st century portrait",
+    "description": "Zidane, a 21st century portrait  is shown on the occasion of the artwork’s twentieth anniversary and the 2026 FIFA World Cup hosted in North America.",
+    "startDate": "2026-06-11",
+    "endDate": "2026-07-19",
+    "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2026/02/GORDON-2019-In-My-Shadow-Installation-view-36-1-1-scaled.jpg",
+    "category": "Modern Art",
+    "url": "https://www.guggenheim.org/exhibition/collection-in-focus-zidane-a-21st-century-portrait"
+  },
+  {
+    "id": "guggenheim-taryn-simon",
+    "museumId": "guggenheim",
+    "title": "Taryn Simon",
+    "description": "Experience an interactive installation by Taryn Simon featuring never-before-seen photographs, text, video, and sculpture.",
+    "startDate": "2026-09-18",
+    "endDate": "2027-03-14",
+    "imageUrl": "https://www.guggenheim.org/wp-content/uploads/2025/10/Taryn-Simon-Guggenheim-composite-9.9.25-scaled.jpg",
+    "category": "Modern Art",
+    "url": "https://www.guggenheim.org/exhibition/taryn-simon"
+  },
+  {
     "id": "moma-sasha-stiles-a-living-poem",
     "museumId": "moma",
     "title": "Sasha Stiles: A LIVING POEM",
