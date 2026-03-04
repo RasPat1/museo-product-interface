@@ -4,7 +4,7 @@ import { museums } from '../data/museums';
 import { CalendarPlus, CalendarCheck, MapPin, Calendar, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 import { format } from 'date-fns';
-import { isLeavingSoon } from '../utils/exhibitHelpers';
+import { isLeavingSoon, parseLocalDate } from '../utils/exhibitHelpers';
 
 interface ExhibitCardProps {
   exhibit: Exhibit;
@@ -15,8 +15,8 @@ export function ExhibitCard({ exhibit }: ExhibitCardProps) {
   const interested = isExhibitInterested(exhibit.id);
   const museum = museums.find(m => m.id === exhibit.museumId);
 
-  const startDate = exhibit.startDate ? format(new Date(exhibit.startDate), 'MMM d, yyyy') : format(new Date(), 'MMM d, yyyy');
-  const endDate = exhibit.endDate ? format(new Date(exhibit.endDate), 'MMM d, yyyy') : null;
+  const startDate = exhibit.startDate ? format(parseLocalDate(exhibit.startDate), 'MMM d, yyyy') : format(new Date(), 'MMM d, yyyy');
+  const endDate = exhibit.endDate ? format(parseLocalDate(exhibit.endDate), 'MMM d, yyyy') : null;
   const leavingSoon = isLeavingSoon(exhibit.endDate);
 
   return (

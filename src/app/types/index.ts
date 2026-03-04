@@ -4,6 +4,7 @@ export interface Museum {
   location: string;
   category: string;
   city: string;
+  timezone: string;
   imageUrl: string;
   description: string;
 }

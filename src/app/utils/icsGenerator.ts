@@ -12,7 +12,6 @@ export function generateICS(exhibits: Exhibit[]): string {
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     'X-WR-CALNAME:Museo - Interesting Exhibits',
-    'X-WR-TIMEZONE:America/Los_Angeles',
     'X-WR-CALDESC:Curated museum exhibits from Museo',
   ].join('\r\n');
 
@@ -23,14 +22,18 @@ export function generateICS(exhibits: Exhibit[]): string {
     // Skip exhibits with no dates at all
     if (!exhibit.startDate && !exhibit.endDate) return;
 
-    // Use today for missing start dates (exhibit is already open)
-    const today = now.toISOString().slice(0, 10).replace(/-/g, '');
+    // Use today (local) for missing start dates (exhibit is already open)
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const d = String(now.getDate()).padStart(2, '0');
+    const today = `${y}${m}${d}`;
     const startDate = exhibit.startDate ? exhibit.startDate.replace(/-/g, '') : today;
     const endDate = exhibit.endDate ? exhibit.endDate.replace(/-/g, '') : exhibit.startDate.replace(/-/g, '');
-    
+
     // Create a unique UID for each event
     const uid = `${exhibit.id}@museo.app`;
-    
+    const tz = museum.timezone;
+
     const event = [
       '',
       'BEGIN:VEVENT',
@@ -38,6 +41,7 @@ export function generateICS(exhibits: Exhibit[]): string {
       `DTSTAMP:${timestamp}`,
       `DTSTART;VALUE=DATE:${startDate}`,
       `DTEND;VALUE=DATE:${endDate}`,
+      `X-MUSEUM-TIMEZONE:${tz}`,
       `SUMMARY:${exhibit.title}`,
       `LOCATION:${museum.name}, ${museum.location}`,
       `DESCRIPTION:${exhibit.description}\\n\\nMuseum: ${museum.name}\\nCategory: ${exhibit.category}${exhibit.url ? `\\nMore info: ${exhibit.url}` : ''}`,

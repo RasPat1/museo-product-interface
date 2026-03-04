@@ -7,6 +7,7 @@ import { ArrowLeft, Download, Calendar, ExternalLink, CheckCircle2 } from 'lucid
 import { motion } from 'motion/react';
 import { format } from 'date-fns';
 import { useState } from 'react';
+import { parseLocalDate } from '../utils/exhibitHelpers';
 
 export function CalendarPage() {
   const navigate = useNavigate();
@@ -157,8 +158,8 @@ export function CalendarPage() {
           <div className="space-y-3">
             {interestedExhibits.map((exhibit, index) => {
               const museum = museums.find(m => m.id === exhibit.museumId);
-              const startDate = exhibit.startDate ? format(new Date(exhibit.startDate), 'MMM d, yyyy') : null;
-              const endDate = exhibit.endDate ? format(new Date(exhibit.endDate), 'MMM d, yyyy') : null;
+              const startDate = exhibit.startDate ? format(parseLocalDate(exhibit.startDate), 'MMM d, yyyy') : null;
+              const endDate = exhibit.endDate ? format(parseLocalDate(exhibit.endDate), 'MMM d, yyyy') : null;
 
               return (
                 <motion.div

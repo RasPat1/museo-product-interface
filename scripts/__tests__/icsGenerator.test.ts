@@ -96,7 +96,8 @@ describe('generateICS', () => {
       url: '',
     };
     const ics = generateICS([noStartExhibit]);
-    const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    const now = new Date();
+    const today = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`;
     expect(ics).toContain(`DTSTART;VALUE=DATE:${today}`);
     expect(ics).toContain('DTEND;VALUE=DATE:20260705');
     expect(ics).toContain('SUMMARY:Through Only');
@@ -112,5 +113,75 @@ describe('generateICS', () => {
     // Both events should be present
     expect(ics).toContain('SUMMARY:Test Exhibition');
     expect(ics).toContain('SUMMARY:No URL Exhibit');
+  });
+
+  it('does not include a hardcoded X-WR-TIMEZONE header', () => {
+    const ics = generateICS([exhibitWithUrl]);
+    expect(ics).not.toContain('X-WR-TIMEZONE');
+  });
+
+  it('preserves exact date digits without timezone conversion', () => {
+    // March 31 should stay as 20260331, not become 20260401
+    const exhibit: Exhibit = {
+      id: 'met-boundary',
+      museumId: 'met',
+      title: 'March Boundary Test',
+      description: 'Testing end-of-month',
+      startDate: '2026-03-01',
+      endDate: '2026-03-31',
+      imageUrl: '',
+      category: 'Art',
+      url: '',
+    };
+    const ics = generateICS([exhibit]);
+    expect(ics).toContain('DTSTART;VALUE=DATE:20260301');
+    expect(ics).toContain('DTEND;VALUE=DATE:20260331');
+  });
+
+  it('preserves January 1st dates correctly', () => {
+    const exhibit: Exhibit = {
+      id: 'met-new-year',
+      museumId: 'met',
+      title: 'New Year Boundary',
+      description: 'Testing year boundary',
+      startDate: '2025-12-15',
+      endDate: '2026-01-01',
+      imageUrl: '',
+      category: 'Art',
+      url: '',
+    };
+    const ics = generateICS([exhibit]);
+    expect(ics).toContain('DTSTART;VALUE=DATE:20251215');
+    expect(ics).toContain('DTEND;VALUE=DATE:20260101');
+  });
+
+  it('includes museum timezone as X-MUSEUM-TIMEZONE for LA museum', () => {
+    const ics = generateICS([exhibitWithUrl]); // getty = LA
+    expect(ics).toContain('X-MUSEUM-TIMEZONE:America/Los_Angeles');
+  });
+
+  it('includes museum timezone as X-MUSEUM-TIMEZONE for NYC museum', () => {
+    const nycExhibit: Exhibit = {
+      id: 'met-tz-test',
+      museumId: 'met',
+      title: 'NYC Timezone Test',
+      description: 'A Met exhibit',
+      startDate: '2026-05-01',
+      endDate: '2026-08-01',
+      imageUrl: '',
+      category: 'Art',
+      url: '',
+    };
+    const ics = generateICS([nycExhibit]);
+    expect(ics).toContain('X-MUSEUM-TIMEZONE:America/New_York');
+  });
+
+  it('uses VALUE=DATE format for all-day events (no time component)', () => {
+    const ics = generateICS([exhibitWithUrl]);
+    // All-day events use VALUE=DATE with YYYYMMDD format (8 digits, no T or time)
+    const dtstart = ics.match(/DTSTART;VALUE=DATE:(\d+)/);
+    expect(dtstart).not.toBeNull();
+    expect(dtstart![1]).toHaveLength(8);
+    expect(dtstart![1]).not.toContain('T');
   });
 });
