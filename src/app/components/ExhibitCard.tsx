@@ -4,6 +4,7 @@ import { museums } from '../data/museums';
 import { Heart, MapPin, Calendar, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 import { format } from 'date-fns';
+import { isLeavingSoon } from '../utils/exhibitHelpers';
 
 interface ExhibitCardProps {
   exhibit: Exhibit;
@@ -16,6 +17,7 @@ export function ExhibitCard({ exhibit }: ExhibitCardProps) {
 
   const startDate = format(new Date(exhibit.startDate), 'MMM d, yyyy');
   const endDate = format(new Date(exhibit.endDate), 'MMM d, yyyy');
+  const leavingSoon = isLeavingSoon(exhibit.endDate);
 
   return (
     <motion.div
@@ -30,6 +32,11 @@ export function ExhibitCard({ exhibit }: ExhibitCardProps) {
           alt={exhibit.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
+        {leavingSoon && (
+          <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-amber-600 text-white text-[11px] font-medium tracking-wide">
+            Leaving soon
+          </span>
+        )}
         <button
           onClick={() => toggleExhibit(exhibit.id)}
           className={`absolute top-4 right-4 w-12 h-12 rounded-full backdrop-blur-md flex items-center justify-center transition-all ${

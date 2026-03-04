@@ -6,6 +6,7 @@ import { ExhibitCard } from '../components/ExhibitCard';
 import { ArrowLeft, Calendar, Filter } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useState } from 'react';
+import { sortByClosingSoonest } from '../utils/exhibitHelpers';
 
 export function Exhibits() {
   const navigate = useNavigate();
@@ -20,10 +21,12 @@ export function Exhibits() {
   // Get unique categories
   const categories = ['all', ...Array.from(new Set(filteredExhibits.map(e => e.category)))];
 
-  // Apply category filter
-  const displayedExhibits = categoryFilter === 'all'
-    ? filteredExhibits
-    : filteredExhibits.filter(e => e.category === categoryFilter);
+  // Apply category filter, then sort by closing soonest first
+  const displayedExhibits = sortByClosingSoonest(
+    categoryFilter === 'all'
+      ? filteredExhibits
+      : filteredExhibits.filter(e => e.category === categoryFilter)
+  );
 
   const interestedCount = curationState.interestedExhibits.length;
 
