@@ -1,0 +1,50 @@
+[
+  {
+    "id": "lacma",
+    "name": "Los Angeles County Museum of Art",
+    "location": "Mid-Wilshire, Los Angeles",
+    "category": "Art",
+    "imageUrl": "https://images.unsplash.com/photo-1763346255014-d5308fc09b4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcnQlMjBtdXNldW0lMjBleHRlcmlvcnxlbnwxfHx8fDE3NzI1ODg1NDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "description": "The largest art museum in the western United States, with an encyclopedic collection of over 150,000 works spanning 6,000 years of art from across the globe."
+  },
+  {
+    "id": "broad",
+    "name": "The Broad",
+    "location": "Downtown Los Angeles",
+    "category": "Contemporary Art",
+    "imageUrl": "https://images.unsplash.com/photo-1574367157590-3454fe866961?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBhcnQlMjBnYWxsZXJ5JTIwaW50ZXJpb3J8ZW58MXx8fHwxNzcyNDk5MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "description": "A contemporary art museum founded by Eli and Edythe Broad, housing nearly 2,000 works of postwar and contemporary art. General admission is always free."
+  },
+  {
+    "id": "nhm",
+    "name": "Natural History Museum of Los Angeles County",
+    "location": "Exposition Park, Los Angeles",
+    "category": "Natural History",
+    "imageUrl": "https://images.unsplash.com/photo-1548980397-dda45023c130?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuYXR1cmFsJTIwaGlzdG9yeSUyMG11c2V1bSUyMGRpbm9zYXVyfGVufDF8fHx8MTc3MjU1ODU2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "description": "One of the largest natural and cultural history museums in the world, with collections of nearly 35 million specimens and artifacts spanning 4.5 billion years of history."
+  },
+  {
+    "id": "california-science",
+    "name": "California Science Center",
+    "location": "Exposition Park, Los Angeles",
+    "category": "Science",
+    "imageUrl": "https://images.unsplash.com/photo-1745273111692-331121c8be1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2llbmNlJTIwbXVzZXVtJTIwZXhoaWJpdHN8ZW58MXx8fHwxNzcyNTMyMTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "description": "A hands-on science museum and one of the largest science centers in the western United States, home to the Space Shuttle Endeavour."
+  },
+  {
+    "id": "moca",
+    "name": "Museum of Contemporary Art (MOCA)",
+    "location": "Downtown Los Angeles",
+    "category": "Contemporary Art",
+    "imageUrl": "https://images.unsplash.com/photo-1717769165971-c81dfab13a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG1vZGVybiUyMHBhaW50aW5nfGVufDF8fHx8MTc3MjU3NDY4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "description": "The only museum in Los Angeles devoted exclusively to contemporary art from the 1940s to the present, with nearly 7,500 works in its permanent collection."
+  },
+  {
+    "id": "getty",
+    "name": "The Getty Center",
+    "location": "Brentwood, Los Angeles",
+    "category": "Art",
+    "imageUrl": "https://images.unsplash.com/photo-1742497359858-8e0a442c9c55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoeSUyMGV4aGliaXRpb24lMjBnYWxsZXJ5fGVufDF8fHx8MTc3MjU4ODU0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "description": "Designed by Richard Meier, the Getty Center houses European paintings, drawings, sculpture, illuminated manuscripts, decorative arts, and photographs. Admission is free."
+  }
+]
