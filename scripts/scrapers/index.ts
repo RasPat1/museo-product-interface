@@ -8,6 +8,7 @@ import { scrape as scrapeMoca } from './moca';
 import { scrape as scrapeBroad } from './broad';
 import { scrape as scrapeNhm } from './nhm';
 import { scrape as scrapeCaliforniaScience } from './california-science';
+import { scrape as scrapeMet } from './met';
 
 import type { Exhibit } from '../../src/app/types/index';
 
@@ -18,6 +19,11 @@ export const SCRAPERS: Record<string, ScraperFn> = {
   broad: scrapeBroad,
   nhm: scrapeNhm,
   'california-science': scrapeCaliforniaScience,
+};
+
+// Scrapers that return multiple results (one per venue)
+export const MULTI_SCRAPERS: Record<string, () => Promise<ScraperResult[]>> = {
+  met: scrapeMet,
 };
 
 const EXHIBITS_JSON_PATH = path.resolve(
@@ -86,7 +92,8 @@ export async function runScrapers(options: RunOptions = {}): Promise<{
   exhibits: Exhibit[];
   errors: string[];
 }> {
-  const museumIds = options.museums || Object.keys(SCRAPERS);
+  const allScraperIds = [...Object.keys(SCRAPERS), ...Object.keys(MULTI_SCRAPERS)];
+  const museumIds = options.museums || allScraperIds;
   const allErrors: string[] = [];
   const results: ScraperResult[] = [];
 
@@ -101,6 +108,19 @@ export async function runScrapers(options: RunOptions = {}): Promise<{
 
   // Run scrapers concurrently
   const promises = museumIds.map(async (id) => {
+    // Check multi-scrapers first
+    const multiScraper = MULTI_SCRAPERS[id];
+    if (multiScraper) {
+      console.log(`Scraping ${id} (multi-venue)...`);
+      const multiResults = await multiScraper();
+      for (const result of multiResults) {
+        results.push(result);
+        allErrors.push(...result.errors);
+        console.log(`  ${result.museumId}: ${result.exhibits.length} exhibits found`);
+      }
+      return;
+    }
+
     const scraper = SCRAPERS[id];
     if (!scraper) {
       allErrors.push(`Unknown museum: ${id}`);

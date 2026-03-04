@@ -79,5 +79,14 @@
     "city": "new-york",
     "imageUrl": "https://images.unsplash.com/photo-1559734840-f9509ee5677f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     "description": "Housed in Frank Lloyd Wright's iconic spiral building, the Guggenheim is home to a renowned collection of Impressionist, Post-Impressionist, early Modern and contemporary art."
+  },
+  {
+    "id": "met-cloisters",
+    "name": "The Met Cloisters",
+    "location": "Fort Tryon Park, New York",
+    "category": "Medieval Art",
+    "city": "new-york",
+    "imageUrl": "https://images.unsplash.com/photo-1590490360904-06f48e31b8b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    "description": "The branch of The Metropolitan Museum of Art dedicated to the art and architecture of medieval Europe, set in a building that incorporates elements from five medieval French cloisters."
   }
 ]
